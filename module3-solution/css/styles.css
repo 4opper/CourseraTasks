@@ -74,7 +74,7 @@ hr {
 	background-color: white;
 }
 
-.row > h1 {
+.row > h2 {
 	margin: 0px 0px 15px;
 	color: black;
 	font-weight: bold;
@@ -82,12 +82,11 @@ hr {
 
 .content div {
 	background-color: darkgray;
-	font-size: 16px;
 	color: black;
 	padding: 0px 15px 10px;
 }
 
-h2 {
+h3 {
 	font-weight: bold;
 }
 
