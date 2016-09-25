@@ -1,0 +1,13 @@
+.ng-binding {
+	display: none;
+}
+
+.had-input {
+	color: green;
+	border: 1px solid green;
+}
+
+.had-noinput {
+	color: red;
+	border: 1px solid red;
+}
