@@ -1,0 +1,8 @@
+<ul class="block">
+  <li ng-repeat="dish in ctrl.items.$$state.value" class="li">
+    <h3>{{dish.name}}</h3>
+	<div>{{dish.short_name}}</div>
+	<div>{{dish.description}}</div>
+    <button ng-click="ctrl.delItem({index: $index});">Don't want this one!</button>
+  </li>
+</ul>
