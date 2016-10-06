@@ -35,8 +35,12 @@ angular
 			    	if (result.data.menu_items[i].description.indexOf(searchTerm) !== -1) {
 			    		items.push(result.data.menu_items[i]);
 			    	}
-			    	
 			    }
+
+			    if (!items[0]) {
+			    	service.error = true;
+			    	console.log("Ошибка в сервисе " + service.error);
+			    } 
 			    // return processed items
 			    return items;
 			});
@@ -48,22 +52,34 @@ angular
 	NarrowItDownController.$inject = ['MenuSearchService'];
 	function NarrowItDownController	(MenuSearchService) {
 		var ctrl = this;
+		
 		ctrl.getFound = function () {
 			ctrl.found = MenuSearchService.rightItems;
+			console.log(ctrl.found); 
+			ctrl.error = MenuSearchService.error;		
+			
 		};
 
-
 		ctrl.makeFound = function (searchTerm) {
-			MenuSearchService.rightItems = MenuSearchService.getMatchedMenuItems(searchTerm);
+			MenuSearchService.rightItems = "";
+			if (searchTerm) {
+				MenuSearchService.rightItems = MenuSearchService.getMatchedMenuItems(searchTerm)
+				console.log(MenuSearchService.rightItems)
+			} else {
+				MenuSearchService.error = true;
+			}			
 			
-			ctrl.getFound();
-			console.log(ctrl.found);
+			ctrl.getFound();			
 		}
 
-		ctrl.delItem = function (index) {
+		ctrl.onRemove = function (index) {
 			ctrl.getFound();
+			console.log("MenuSearchService.rightItems :");
 			console.log(MenuSearchService.rightItems);
 		    ctrl.found.$$state.value.splice(index.index, 1);
 		 };
 	}
 })();
+
+
+			
