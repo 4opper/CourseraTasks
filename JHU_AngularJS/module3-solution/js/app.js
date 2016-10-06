@@ -39,13 +39,12 @@ angular
 
 			    if (!items[0]) {
 			    	service.error = true;
-			    	console.log("Ошибка в сервисе " + service.error);
 			    } 
 			    // return processed items
 			    return items;
 			});
 		}
-
+		
 		service.rightItems;	
 	}
 	
@@ -55,7 +54,6 @@ angular
 		
 		ctrl.getFound = function () {
 			ctrl.found = MenuSearchService.rightItems;
-			console.log(ctrl.found); 
 			ctrl.error = MenuSearchService.error;		
 			
 		};
@@ -64,7 +62,6 @@ angular
 			MenuSearchService.rightItems = "";
 			if (searchTerm) {
 				MenuSearchService.rightItems = MenuSearchService.getMatchedMenuItems(searchTerm)
-				console.log(MenuSearchService.rightItems)
 			} else {
 				MenuSearchService.error = true;
 			}			
@@ -72,10 +69,8 @@ angular
 			ctrl.getFound();			
 		}
 
-		ctrl.onRemove = function (index) {
+		ctrl.removeItem = function (index) {
 			ctrl.getFound();
-			console.log("MenuSearchService.rightItems :");
-			console.log(MenuSearchService.rightItems);
 		    ctrl.found.$$state.value.splice(index.index, 1);
 		 };
 	}
