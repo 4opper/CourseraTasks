@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Module4 assigment</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="MenuApp">
+	<ui-view></ui-view>
+    <loading-spinner></loading-spinner>
+
+	<!-- Libraries -->
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="js/menuapp.module.js"></script>
+    <script src="js/data.module.js"></script>
+    <script src="js/spinner/spinner.module.js"></script>
+
+    <!-- Routes -->
+    <script src="js/routes.js"></script>
+
+    <!-- 'MenuApp' module artifacts -->
+    <script src="js/categories.component.js"></script>
+    <script src="js/categories.controller.js"></script>
+    <script src="js/items.component.js"></script>
+    <script src="js/items.controller.js"></script>
+
+    <!-- 'Data' module artifacts -->
+    <script src="js/menudata.service.js"></script>
+
+    <!-- 'Spinner' module artifacts -->
+    <script src="js/spinner/loadingspinner.component.js"></script>
+
+</body>
+</html>

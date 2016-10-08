@@ -1,0 +1,6 @@
+<div ng-repeat="item in $ctrl.items.data.menu_items"
+     ui-sref="items/({categoryName: item.short_name})"
+     class="categoryCard notpoiter">
+	<h4>{{item.name}} ({{item.short_name}}) </h4><br/>
+	{{item.description}}
+</div>
