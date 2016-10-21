@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row nomargin-row">
+		<fieldset>
+			<legend>Sign Up Page</legend>
+			<div class="col-md-5 offset-md-3 col-sm-7  offset-sm-3">
+				<form class="signup" name="signUpForm" novalidate>
+					<div class="form-group">
+						<label for="firstname">First Name:</label>
+						<input type="text" ng-model="signUpCtrl.user.firstname" name="firstname" 
+						       id="firstname" placeholder="Enter your first name" required>
+					</div>
+
+					<div class="form-group">
+						<label for="lastname">Last Name:</label>
+						<input type="text" ng-model="signUpCtrl.user.lastname" name="lastname" 
+						       id="lastname" placeholder="Enter your last name" required>
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email address:</label>
+						<input type="email" ng-model="signUpCtrl.user.email" name="email" 
+					           id="email" placeholder="Enter your email address" required> 
+					    <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+			            	Must be a valid email address: handle@domain format
+			          	</span>
+					</div>       
+					
+					<div class="form-group">
+						<label for="phone">Phone number:</label>
+						<input type="text" ng-model="signUpCtrl.user.phone" name="phone" 
+					       	   id="phone" placeholder="Enter your phone number ###-###-####"
+			               	   required pattern="(\d{3})-(\d{3})-(\d{4})"> 
+			            <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+				            Phone must be in the format ###-###-####.
+				        </span>   	   
+					</div>      
+					
+			        <div class="form-group">
+			        	<label for="favedish">Favourite Dish:</label>
+			        	<input type="text" ng-model="signUpCtrl.favouritedish" 
+			        	       ng-blur="signUpCtrl.checkFaveDish(signUpCtrl.favouritedish | uppercase)" 
+			        		   name="favouritedish" id="favedish" 
+			                   placeholder="Eneter the menu number of your favourite dish">
+			            <span ng-if="signUpCtrl.dishDoesntExist && signUpForm.favouritedish.$touched">
+				            No such menu number exists.
+				        </span> 
+				        <span ng-if="!signUpCtrl.dishDoesntExist && signUpForm.favouritedish.$touched && signUpCtrl.favouritedish !== undefined">
+				        	Valid dish short name.
+				        </span> 
+			        </div>
+			        
+			        <button class="btn btn-primary" ng-disabled="signUpForm.$invalid || 
+			        		(signUpCtrl.user.favouritedish !== undefined && signUpCtrl.dishDoesntExist)"
+			        		ng-click="signUpCtrl.submit()">Submit</button>
+
+			       	<span ng-if="signUpCtrl.haveInfo"> Your information has been saved.</span>
+				</form>
+			</div>	
+		</fieldset>
+	</div>
+</div>

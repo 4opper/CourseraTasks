@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row nomargin-row">
+		<div class="col-md-7 offset-md-3 col-sm-9  offset-sm-3">
+			<div ng-if="myInfoCtrl.haveInfo">
+				Your name: {{myInfoCtrl.user.firstname}} {{myInfoCtrl.user.lastname}} <hr/>
+				Your email: {{myInfoCtrl.user.email}} <hr/>
+				Your phone number: {{myInfoCtrl.user.phone}} <hr/>
+				<span ng-if="myInfoCtrl.user.faveDish">
+					Your favourite dish: {{myInfoCtrl.user.faveDish.name}} 
+										 ({{myInfoCtrl.user.faveDish.short_name}})<br/>
+					It contists of {{myInfoCtrl.user.faveDish.description}} <hr/>
+					<img class="img-responsive" width="350" height="250" 
+						 ng-src="https://chopper-course5.herokuapp.com/images/{{myInfoCtrl.user.faveDish.short_name}}.jpg" 
+						 alt="{{myInfoCtrl.user.faveDish.name}}">
+				</span>
+			</div>
+			<div ng-if="!myInfoCtrl.haveInfo">
+				<h2>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h2>
+			</div>
+		</div>
+	</div>
+</div>
